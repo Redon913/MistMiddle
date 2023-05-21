@@ -1,0 +1,35 @@
+<div class="banner">
+    <div class="heading">
+        <h2>Catchy Title</h2>
+        <h4>Home>Products</h4>
+    </div>
+    <img src="/assets/temp/productCarl{{rand}}.jpg" alt="Description for Image 1" class="product-image" />
+</div>
+
+<div class="content-wraper">
+    <div class="filter">
+        <p-fieldset legend="FILTERS">
+            <p-divider>
+                <div class="inline-flex align-items-center">
+                    <b>Categories</b>
+                </div>
+            </p-divider>
+            <div *ngFor=" let category of categories">
+                <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
+                    [inputId]="category.productCategory"></p-checkbox>
+                <label [for]="category.productCategory">{{ category.productCategory }}</label>
+            </div>
+        </p-fieldset>
+    </div>
+    <div class="product-container">
+        <p-card *ngFor=" let product of products" [header]="product.productName" subheader="Card Subheader"
+            [style]="{ width: '300px' }">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
+                repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
+                perferendis esse, cupiditate neque
+                quas!
+            </p>
+        </p-card>
+    </div>
+</div>

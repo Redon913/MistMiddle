@@ -1,0 +1,82 @@
+<p-carousel [value]="images" [numVisible]="1" [showIndicators]="false" [showNavigators]="false"
+    [autoplayInterval]="3000">
+    <ng-template let-item pTemplate="item">
+        <div class="product-item">
+            <img [src]="item.itemImageSrc" [alt]="item.alt" class="product-image" />
+            <button pButton pRipple label="Order Now" [ngClass]="
+                {'btn-red':item.colorClass == 'red','btn-green':item.colorClass == 'green','btn-yellow':item.colorClass == 'yellow','btn-blue':item.colorClass == 'blue'}
+                "></button>
+        </div>
+    </ng-template>
+</p-carousel>
+
+
+<div class="wrapper">
+    <span class="header">Our Categories</span>
+    <div class="card-wrapper">
+        <div class="card-container" *ngFor="let card of cards">
+            <div class="card">
+                <img [src]="card.itemImageSrc" alt="card.alt" srcset="">
+            </div>
+            <span class="card-title">{{card.name}}</span>
+        </div>
+    </div>
+</div>
+<div class="cause-wapper">
+    <div class="content">
+        <div class="header" style="color:red">Choose Us <br> for a Cause</div>
+        <p>This space gives you more room to expound on your message. Remember that writing effectively is an art. Start
+            by using
+            simple, everyday words people can easily understand. Be clear and direct to the point. Keep your thoughts
+            flowing
+            logically, and aim for brevity.</p>
+    </div>
+    <img src="/assets/temp/rice.jpg" alt="Rice Field">
+</div>
+
+<p-timeline [value]="events" align="alternate" styleClass="customized-timeline">
+    <ng-template pTemplate="content" let-event>
+        <div class="steps">
+            <img *ngIf="event.image" src="/assets/temp/" [src]="'/assets/temp/' + event.image" [alt]="event.name"
+                width="250" class="shadow-2" />
+            <span class="info">
+                <h1>{{event.status}}</h1>
+                <p>
+                    {{event.content}}
+                </p>
+            </span>
+        </div>
+    </ng-template>
+</p-timeline>
+<div class="footer">
+    <div class="left">
+        <div class="head">Get in Touch</div>
+        <div class="det">care@mistmiddle.com</div><br>
+        <div class="head">Toll Free:</div>
+        <div class="det">2548-9618-47</div><br>
+        <div class="head">Social Handles</div>
+        <div class="det">2548-9618-47</div><br>
+    </div>
+    <div class="middle">
+        <div routerLink="about-us" class="det link">About Us</div>
+        <div class="det link">Organic and Quality certificate</div>
+        <div class="det link">Meet the Farmers</div>
+        <div class="det link">Refund Policy</div>
+        <div class="det link">Term of Service</div>
+        <div class="det link">Order Tracking</div>
+        <div class="det link">Privacy Policy</div>
+        <div class="det link">Our Herbs</div>
+    </div>
+    <div class="right">
+        <div class="head">Subscribe to our monthly newsletter</div>
+        <div class="det p-inputgroup">
+            <input type="text" pInputText placeholder="example@email.com" />
+            <button type="button" pButton label="Subscribe"></button>
+        </div><br>
+        <div class="det link">Contact Us</div>
+        <div class="det link">Join Us</div>
+        <div class="det link">CSR Policy</div>
+        <div class="det link">Press/News</div>
+        <div class="det link">FAQs</div>
+    </div>
+</div>

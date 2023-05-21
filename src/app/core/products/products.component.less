@@ -1,0 +1,92 @@
+* {
+  font-family: 'Trispace', sans-serif;
+  font-weight: 300;
+}
+
+*:host ::ng-deep {
+  .banner {
+    height: 190px;
+    position: relative;
+  }
+
+  .banner img {
+    position: absolute;
+    right: 0;
+    object-fit: contain;
+  }
+
+  h2 {
+    color: #39ba6c;
+  }
+
+  .heading {
+    position: absolute;
+    margin-left: 10%;
+  }
+
+  h2,
+  h4 {
+    font-family: 'Trispace';
+    font-weight: 500;
+  }
+
+  .content-wraper {
+    padding: 20px 50px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+    .filter {
+      width: 25%;
+
+      .p-divider-horizontal {
+        padding: 0;
+        margin: 10px 0;
+      }
+
+      .p-fieldset {
+        height: fit-content;
+
+
+        .p-fieldset-legend {
+          background: #39ba6c;
+          color: aliceblue;
+          padding: 15px 20px;
+          font-weight: 500;
+        }
+
+        .p-fieldset-content {
+          padding: 0 0 20px 0 !important;
+
+          .head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          }
+
+          .ng-star-inserted {
+            padding: 5px 0 5px 30px;
+
+            label {
+              margin-left: 10px;
+            }
+          }
+        }
+
+      }
+    }
+
+    .product-container {
+      width: 75%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+
+      .p-card {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
