@@ -17,6 +17,9 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { BadgeModule } from 'primeng/badge';
 import { ListboxModule } from 'primeng/listbox';
 import { TimelineModule } from 'primeng/timeline';
+import { SpeedDialModule } from 'primeng/speeddial';
+import { ScrollTopModule } from 'primeng/scrolltop';
+import { PaginatorModule } from 'primeng/paginator';
 
 @NgModule({
   exports: [
@@ -38,6 +41,9 @@ import { TimelineModule } from 'primeng/timeline';
     BadgeModule,
     ListboxModule,
     TimelineModule,
+    SpeedDialModule,
+    ScrollTopModule,
+    PaginatorModule,
   ],
 })
 export class MaterialModule {}

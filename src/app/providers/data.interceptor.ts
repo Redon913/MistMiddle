@@ -21,6 +21,8 @@ export class DataInterceptor implements HttpInterceptor {
         'Access-Control-Allow-Origin': 'http://localhost:4200',
       }),
     });
+    console.log(modifiedReq);
+
     return next.handle(modifiedReq);
     return next.handle(request);
   }

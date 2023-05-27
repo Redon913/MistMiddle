@@ -1,1 +1,22 @@
-<p>blog-page works!</p>
+<div class="page-wraper">
+    <h1>
+        {{Blog?.title}}
+    </h1>
+    <span class="right-img">
+        <img *ngIf="img[0]" [src]=img[0]>
+    </span>
+    <p>{{Blog?.content}}</p>
+    <span class="grid">
+        <img style="width: 80%; max-height: 600px;" *ngIf="img[1]" [src]=img[1]>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel eos quia modi, fugit ipsa, nesciunt, autem
+            ipsum veritatis aperiam beatae a officiis commodi odio laborum perferendis maiores iusto vero natus. Lorem,
+            ipsum dolor sit amet consectetur adipisicing elit. Vel nam provident quasi aliquid reprehenderit
+            necessitatibus quaerat rem corrupti, quisquam dolorem aliquam nobis fugiat nesciunt, officiis eveniet unde
+            nihil rerum perspiciatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, omnis! Impedit
+            beatae ea, fugit, molestiae, incidunt aliquid quae corporis in debitis sunt eaque vel! Itaque veniam
+            consectetur doloribus quidem deserunt.</p>
+        <img *ngIf="img[2]" [src]=img[2]>
+        <img *ngIf="img[3]" [src]=img[3]>
+    </span>
+</div>
+<app-footer></app-footer>

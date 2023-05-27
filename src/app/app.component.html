@@ -1,6 +1,14 @@
-<p-sidebar [(visible)]="isSidebarLeft" [baseZIndex]="10000">
+<!-- <p-sidebar [(visible)]="isSidebarLeft" [baseZIndex]="10000">
   <h1 style="font-weight:normal">Left Sidebar</h1>
-</p-sidebar>
+</p-sidebar> -->
+<div class="main">
 
-<app-header (isSidebarLeft)="toggleLeftSidebar($event)"></app-header>
-<router-outlet></router-outlet>
+  <app-header (isSidebarLeft)="toggleLeftSidebar($event)"></app-header>
+  <div class="speeddial-circle">
+    <p-speedDial [model]="items" [transitionDelay]="80" [radius]="200" direction="up-left" type="quarter-circle"
+      showIcon="pi pi-bars" hideIcon="pi pi-times"></p-speedDial>
+  </div>
+
+  <router-outlet></router-outlet>
+
+</div>

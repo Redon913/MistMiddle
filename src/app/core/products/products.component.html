@@ -6,6 +6,9 @@
     <img src="/assets/temp/productCarl{{rand}}.jpg" alt="Description for Image 1" class="product-image" />
 </div>
 
+
+
+
 <div class="content-wraper">
     <div class="filter">
         <p-fieldset legend="FILTERS">
@@ -17,19 +20,51 @@
             <div *ngFor=" let category of categories">
                 <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
                     [inputId]="category.productCategory"></p-checkbox>
-                <label [for]="category.productCategory">{{ category.productCategory }}</label>
+                <label [for]="category.productCategory">{{ category.productCategory?category.productCategory: 'Other'
+                    }}</label>
             </div>
         </p-fieldset>
     </div>
-    <div class="product-container">
-        <p-card *ngFor=" let product of products" [header]="product.productName" subheader="Card Subheader"
-            [style]="{ width: '300px' }">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error
-                repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam
-                perferendis esse, cupiditate neque
-                quas!
-            </p>
-        </p-card>
+    <div class="product-wraper">
+        <div class="paginator">
+            <div>
+                <p-dropdown [options]="sort" [(ngModel)]="selectedSort" optionLabel="name" placeholder="Sort By"
+                    [style]="{'width': '300px'}" (ngModelChange)="onSortChange($event)">
+                    <ng-template let-sort pTemplate="item">
+                        <div class="flex align-items-center gap-2">
+                            <div>{{ sort.name }}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div class="page">
+                <span class="mx-1 text-color">Items per page: </span>
+                <p-dropdown [options]="options" optionLabel="label" optionValue="value" [(ngModel)]="rows"
+                    (ngModelChange)="first = 0"></p-dropdown>
+                <p-paginator [first]="first" [rows]="rows" [totalRecords]="totalProducts"
+                    (onPageChange)="onPageChange($event)" [showCurrentPageReport]="true"
+                    currentPageReportTemplate="{first} - {last} of {totalRecords}" [showPageLinks]="false"
+                    [showFirstLastIcon]="false"></p-paginator>
+            </div>
+        </div>
+        <div class="product-container">
+            <p-card *ngFor=" let product of products; let i = index" [header]="product.productName"
+                [subheader]="'₹' + product.productUnitPrice + ' / ' + product.productUnitQuantity + product.productUnit"
+                [style]="{ width: '300px', 'background-image': 'url(/assets/temp/' + (product.productId % 4 + 1) + '.jpg)'}">
+
+                <div class="layer"></div>
+                <p *ngIf="content.length > 247; else noReadmore">
+                    {{content.slice(0,247)}}<strong>...read more</strong>
+                </p>
+                <ng-template #noReadmore>
+                    <p>
+                        {{content}}
+                    </p>
+                </ng-template>
+            </p-card>
+        </div>
     </div>
+
+    <p-scrollTop icon="pi pi-angle-double-up"></p-scrollTop>
+
 </div>

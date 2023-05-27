@@ -8,13 +8,14 @@
 <div class="content-wraper">
     <div class="filter">
         <p-fieldset legend="Top Readings">
-            <p-listbox [options]="PopularBlogs" [(ngModel)]="selectedBlog" optionLabel="title">
+            <p-listbox [options]="PopularBlogs" (onChange)="navigateToBlog(selectedBlog)" [(ngModel)]="selectedBlog"
+                optionLabel="title">
             </p-listbox>
         </p-fieldset>
     </div>
     <div class="blog-container">
         <div class="blog">
-            <p-card [header]=blog.title *ngFor=" let blog of Blogs">
+            <p-card [header]=blog.title *ngFor=" let blog of Blogs" (click)="navigateToBlog(blog)">
                 <ng-template pTemplate="subheader">
                     <img alt="Card" src="https://primefaces.org/cdn/primeng/images/usercard.png" width="100%" />
                 </ng-template>

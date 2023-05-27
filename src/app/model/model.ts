@@ -1,6 +1,6 @@
 export interface Product {
-  ProductUnit: string;
-  ProductUnitQuantity: string;
+  productUnit: string;
+  productUnitQuantity: string;
   productCategory: string;
   productDescription: string;
   productId: number;
@@ -18,7 +18,7 @@ export interface SelectItem<T = any> {
 }
 
 export interface Blog {
-  BlogId: number;
+  blogId: number;
   title: string;
   content: string;
   image: string;
