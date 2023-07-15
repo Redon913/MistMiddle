@@ -18,7 +18,7 @@
                 </div>
             </p-divider>
             <div *ngFor=" let category of categories">
-                <p-checkbox name="group" [value]="category" [(ngModel)]="selectedCategories"
+                <p-checkbox name="group" [value]="category.productCategory" [(ngModel)]="selectedCategories"
                     [inputId]="category.productCategory"></p-checkbox>
                 <label [for]="category.productCategory">{{ category.productCategory?category.productCategory: 'Other'
                     }}</label>

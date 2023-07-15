@@ -24,3 +24,9 @@ export interface Blog {
   image: string;
   pCount: number;
 }
+
+export interface productRequest {
+  productId: number;
+  sortType: string;
+  filterCategory: string;
+}

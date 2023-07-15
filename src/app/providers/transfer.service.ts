@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DataService } from './data.service';
 import { environment } from 'src/environments/environment';
+import { productRequest } from '../model/model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +13,15 @@ export class TransferService {
     return this.dataService.getData(environment.apiUrl + 'getProductCategory/');
   }
 
-  getAllProducts(req: number) {
+  getAllProducts(req: productRequest) {
     return this.dataService.getData(
-      environment.apiUrl + 'getAllProducts/' + req
+      environment.apiUrl +
+        'getAllProducts/' +
+        req.productId +
+        '/' +
+        req.sortType +
+        '/' +
+        req.filterCategory
     );
   }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/model';
+import { Product, productRequest } from 'src/app/model/model';
 import { DataService } from 'src/app/providers/data.service';
 import { TransferService } from 'src/app/providers/transfer.service';
 
@@ -14,10 +14,10 @@ export class ProductsComponent implements OnInit {
   rows: number = 10;
 
   sort: { name: string; code: string; icon: string }[] = [
-    { name: 'Price - Low to High', code: 'SPD', icon: 'pi pi-arrow-down' },
-    { name: 'Price - High to Low', code: 'SPA', icon: 'pi pi-arrow-up' },
-    { name: 'Alphabetical [A-Z]', code: 'ALA', icon: 'pi pi-star' },
-    { name: 'Alphabetical [Z-A]', code: 'ALD', icon: 'pi pi-star' },
+    { name: 'Price - Low to High', code: 'LTH', icon: 'pi pi-arrow-down' },
+    { name: 'Price - High to Low', code: 'HTL', icon: 'pi pi-arrow-up' },
+    { name: 'Alphabetical [A-Z]', code: 'ATZ', icon: 'pi pi-star' },
+    { name: 'Alphabetical [Z-A]', code: 'ZTA', icon: 'pi pi-star' },
   ];
 
   selectedSort: { name: string; code: string; icon: string } = {
@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
   totalProducts: number = 0;
 
   selectedCategories: any = null;
-  selectedProducts: any = null;
 
   categories: any[] = [];
   products: Product[] = [];
@@ -46,7 +45,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(private transferService: TransferService) {
     this.getCategories();
-    this.getAllProducts(-1);
+    this.getAllProducts(-1, this.selectedSort.code, this.selectedCategories);
   }
 
   ngOnInit() {
@@ -59,7 +58,18 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  private getAllProducts(request: number) {
+  private getAllProducts(
+    pId: number,
+    sortBy: string = this.selectedSort.code,
+    filter: string = this.selectedCategories
+  ) {
+    const request: productRequest = {
+      productId: pId,
+      sortType: sortBy,
+      filterCategory: filter,
+    };
+    console.log(request);
+
     this.transferService.getAllProducts(request).subscribe((res) => {
       this.products = res;
       this.totalProducts = this.products.length;
@@ -74,6 +84,6 @@ export class ProductsComponent implements OnInit {
   }
 
   onSortChange(event: any) {
-    console.log(event);
+    this.getAllProducts(-1);
   }
 }

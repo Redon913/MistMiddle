@@ -20,6 +20,7 @@ import { TimelineModule } from 'primeng/timeline';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { ScrollTopModule } from 'primeng/scrolltop';
 import { PaginatorModule } from 'primeng/paginator';
+import { DynamicDialogModule } from 'primeng/dynamicdialog';
 
 @NgModule({
   exports: [
@@ -44,6 +45,7 @@ import { PaginatorModule } from 'primeng/paginator';
     SpeedDialModule,
     ScrollTopModule,
     PaginatorModule,
+    DynamicDialogModule,
   ],
 })
 export class MaterialModule {}

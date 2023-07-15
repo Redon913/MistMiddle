@@ -8,6 +8,7 @@ import { BlogListComponent } from './blog-list/blog-list.component';
 import { BlogPageComponent } from './blog-page/blog-page.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavModule } from '../nav/nav.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NavModule } from '../nav/nav.module';
     BlogListComponent,
     BlogPageComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
